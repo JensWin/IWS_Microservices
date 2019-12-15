@@ -1,9 +1,9 @@
-## Create Containers
-# Run MongoDB
+# Create Containers
+## Run MongoDB
 `$ docker run --name some-mongo -d mongo:latest`
-# Create Marketing Image
+## Create Marketing Image
 `$ docker build . -t marketing-image`
-# Run Marketing Container
+## Run Marketing Container
 Use inspect on MongoDB container to get the IP
 `$ docker inspect some-mongo`
 `$ docker run -e DB_IP=change_me -p 3000:3000 --name marketing-container marketing-image`
