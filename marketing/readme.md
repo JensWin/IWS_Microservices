@@ -1,3 +1,4 @@
+
 # Create Containers
 ## Run MongoDB
 `$ docker run --name some-mongo -d mongo:latest`
@@ -10,7 +11,7 @@ Use inspect on MongoDB container to get the IP
 
 # API
 
-**Get Campaigns**
+**Get All Campaigns**
 ----
   Returns json data about all campaigns.
 
@@ -25,8 +26,7 @@ Use inspect on MongoDB container to get the IP
 * **Success Response:**
 
   * **Code:** 200 <br />
-    **Content:** `[
-                      {
+    **Content:** `[{
                           "_id": "5df62fff55d78800128a6067",
                           "product_id": "someID",
                           "date_from": "2019-09-07T14:50:00.000Z",
@@ -46,7 +46,7 @@ Use inspect on MongoDB container to get the IP
 
   **Post Campaign**
   ----
-    Saves campaign in database.
+    Saves campaign.
 
   * **URL**
 
@@ -78,3 +78,34 @@ Use inspect on MongoDB container to get the IP
            	"date_to": "2019-09-08T15:50+01:00"
          }
     ```
+    
+  **Delete Campaign**
+  ----
+    Delete campaign by given ID.
+
+  * **URL**
+
+    /campaign/:id
+
+  * **Method:**
+
+    `DELETE`
+
+  * **Success Response:**
+
+    * **Code:** 200 <br />
+      **Content:** `"message": "successfully deleted"`
+
+**Get Campaign**
+  ----
+    Get campaign by given ID.
+
+  * **URL**
+
+    /campaign/:id
+
+  * **Method:**
+
+    `GET`
+
+
