@@ -70,7 +70,8 @@ Use inspect on MongoDB container to get the IP
 
   * **Sample Call:**
 
-    ``` {
+    ``` 
+         {
            	"product_id": "someID2",
            	"discount": 30,
            	"date_from": "2019-09-07T15:50+01:00",
