@@ -18,6 +18,7 @@ namespace basket.Controllers
         public CustomerBasketController(BasketDbContext context)
         {
             _context = context;
+            //_context.Database.Migrate();
         }
 
         // GET: /Basket

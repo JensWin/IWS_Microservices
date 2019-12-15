@@ -55,31 +55,31 @@ namespace basket
                 endpoints.MapControllers();
             });
 
-            using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
-            using (var context = scope.ServiceProvider.GetService<BasketDbContext>())
-            {
-                context.Database.EnsureCreated();
-                context.Database.Migrate();
+            //using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //using (var context = scope.ServiceProvider.GetService<BasketDbContext>())
+            //{
+            //   // context.Database.EnsureCreated();
+            //    context.Database.Migrate();
 
-                //var item = new BasketItem
-                //{
-                //    Count = 2,
-                //    ProductName = "Hallo",
+            //    //var item = new BasketItem
+            //    //{
+            //    //    Count = 2,
+            //    //    ProductName = "Hallo",
                     
-                //};
+            //    //};
 
-                //var basket = new CustomerBasket
-                //{
-                //    CustomerId = 1,
-                //    Items = new List<BasketItem>
-                //    {
-                //        item
-                //    }
-                //};
+            //    //var basket = new CustomerBasket
+            //    //{
+            //    //    CustomerId = 1,
+            //    //    Items = new List<BasketItem>
+            //    //    {
+            //    //        item
+            //    //    }
+            //    //};
 
-                //context.Add(basket);
-                context.SaveChanges();
-            }
+            //    //context.Add(basket);
+            //    context.SaveChanges();
+            //}
                 
         }
     }
