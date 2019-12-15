@@ -44,7 +44,7 @@ Use inspect on MongoDB container to get the IP
                       }
                   ]`
 
-  **Post Campaign**
+**Post Campaign**
   ----
     Saves campaign.
 
@@ -79,7 +79,7 @@ Use inspect on MongoDB container to get the IP
          }
     ```
     
-  **Delete Campaign**
+**Delete Campaign**
   ----
     Delete campaign by given ID.
 
