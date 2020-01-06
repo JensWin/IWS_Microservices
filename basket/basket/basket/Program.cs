@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using basket.Data;
+using basket.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,27 @@ namespace basket
             //using (var scope = host.Services.CreateScope())
             //{
             //    scope.ServiceProvider.GetRequiredService<BasketDbContext>().Database.Migrate();
+
+            //    var context = scope.ServiceProvider.GetRequiredService<BasketDbContext>();
+
+            //    var item = new BasketItem
+            //    {
+            //        Count = 2,
+            //        ProductName = "Hallo",
+
+            //    };
+
+            //    var basket = new CustomerBasket
+            //    {
+            //        CustomerId = 1,
+            //        Items = new List<BasketItem>
+            //        {
+            //            item
+            //        }
+            //    };
+
+            //    context.Add(basket);
+            //    context.SaveChanges();
             //}
             host.Run();
         }

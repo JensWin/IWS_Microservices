@@ -28,11 +28,25 @@ namespace basket
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddEntityFrameworkNpgsql().AddDbContext<BasketDbContext>(options =>
-                options.UseNpgsql(Configuration.GetConnectionString("BasketContext"))
-                //options.UseNpgsql("Host=192.168.0.234;Port=5432;Database=basketDb;Username=postgres;Password=postgres;")
+            var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
 
-                );
+            if (string.IsNullOrEmpty(connectionString))
+            {
+                services.AddEntityFrameworkNpgsql().AddDbContext<BasketDbContext>(options =>
+             options.UseNpgsql(Configuration.GetConnectionString("BasketContext"))
+             //options.UseNpgsql("Host=192.168.0.234;Port=5432;Database=basketDb;Username=postgres;Password=postgres;")
+
+             );
+            }
+            else
+            {
+                services.AddEntityFrameworkNpgsql().AddDbContext<BasketDbContext>(options =>
+             options.UseNpgsql(connectionString)
+             //options.UseNpgsql("Host=192.168.0.234;Port=5432;Database=basketDb;Username=postgres;Password=postgres;")
+
+             );
+            }
+         
             services.AddControllers();
         }
 
