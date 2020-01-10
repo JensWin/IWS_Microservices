@@ -50,8 +50,8 @@ router.delete("/:id", function (req, res, next) {
 
     });
 });
-/* get campaign by id*/
-router.get("/:id", function (req, res, next) {
+/* get campaign by product id*/
+router.get("/productid/:id", function (req, res, next) {
     const id = req.params.id;
     campaignSchema.findById(id, function (err, campaign){
         if (err){
@@ -60,6 +60,11 @@ router.get("/:id", function (req, res, next) {
             res.json(campaign);
         }
     });
+    campaignSchema.find({ "product_id" : req.params.id},
+        function (err, campaigns) {
+            if (err) return console.error(err);
+            res.json(campaigns);
+        });
 });
 
 module.exports = router;

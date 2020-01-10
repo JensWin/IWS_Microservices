@@ -15,14 +15,10 @@ const campaignRoute = require("./routes/campaign");
 // App
 const app = express();
 
-app.get('/', (req, res) => {
-    res.send('Server is running');
-});
-
 connect_db();
 
 
-app.use('/campaign', campaignRoute );
+app.use('/', campaignRoute );
 
 app.listen(PORT, () => console.log("Listen to port "+PORT));
 
