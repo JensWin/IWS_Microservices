@@ -17,7 +17,7 @@ Use inspect on MongoDB container to get the IP
 
 * **URL**
 
-  /campaign
+  /
 
 * **Method:**
 
@@ -50,7 +50,7 @@ Use inspect on MongoDB container to get the IP
 
   * **URL**
 
-    /campaign
+    /
 
   * **Method:**
 
@@ -85,7 +85,7 @@ Use inspect on MongoDB container to get the IP
 
   * **URL**
 
-    /campaign/:id
+    /:id
 
   * **Method:**
 
@@ -102,7 +102,7 @@ Use inspect on MongoDB container to get the IP
 
   * **URL**
 
-    /campaign/:id
+    /:id
 
   * **Method:**
 
