@@ -17,7 +17,7 @@ Get:
 -- Gibt den Warenkorb mit der CustomerId 1 zurück
 
 Post:
-- localhost:5000/1 + Body: { "productId": 1, "productName": "A", "productPrice": 1.5, "count": 2 }  
+- localhost:5000/1 + Body: { "productId": 1, "count": 2 }  
 -- Prüft ob ein Warenkorb für CustomerId 1 bereits vorhanden ist. Falls nein wird dieser erstellt und das Produkt mit der ProductId 1 hinzugefügt  
 -- Mehrmaliges hinzufügen setzt den Count hoch
 
