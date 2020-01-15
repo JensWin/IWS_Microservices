@@ -128,3 +128,4 @@ I:\Coding Stuff\IWS\IWS_Microservices\basket\basket\basket\obj\Release\netcoreap
 I:\Coding Stuff\IWS\IWS_Microservices\basket\basket\basket\obj\Release\netcoreapp3.0\basket.csproj.CopyComplete
 I:\Coding Stuff\IWS\IWS_Microservices\basket\basket\basket\obj\Release\netcoreapp3.0\basket.dll
 I:\Coding Stuff\IWS\IWS_Microservices\basket\basket\basket\obj\Release\netcoreapp3.0\basket.pdb
+I:\Coding Stuff\IWS\IWS_Microservices\basket\basket\basket\obj\Release\netcoreapp3.0\basket.csprojAssemblyReference.cache
