@@ -8,7 +8,7 @@ const PORT = config.Gateway.port;
 const basketURL= process.env.BASKET_IP + ":" +config.Nodes.basketPORT;
 const marketingURL= process.env.MARKETING_IP + ":" + config.Nodes.marketingPORT;
 const productURL= config.Nodes.productURL;
-const paymentURL= process.env.MARKETING_IP + ":" + config.Nodes.paymentPORT;
+const paymentURL= process.env.PAYMENT_IP + ":" + config.Nodes.paymentPORT;
 
 //Routes
 const compositionRoute = require("./routes/composition");
