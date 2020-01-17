@@ -3,7 +3,7 @@ const express = require('express');
 const mongoose = require("mongoose");
 
 // Constants
-const PORT = 3000;
+const PORT = process.env.PORT;
 const DB_Port = "27017";
 const DB_NAME = "marketing";
 

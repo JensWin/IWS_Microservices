@@ -1,0 +1,67 @@
+version: '2'
+
+networks:
+  webshop-net:
+    driver: bridge
+    
+services:
+  basket:
+    image: basketimage:latest
+    depends_on:
+      - "postgres_image"
+    build:
+      context: ./basket/basket
+      dockerfile: Dockerfile
+    ports:
+      - "3002:80"
+    environment:
+      DB_CONNECTION_STRING: "host=postgres_image;port=5432;database=basketdb;username=postgres;password=postgres"
+    networks:
+      - webshop-net
+  
+  postgres_image:
+    image: postgres:latest
+    ports:
+      - "5432"
+    restart: always
+    volumes:
+      - db_volume:/var/lib/postgresql/data2
+      - ./basket/basket/dbscripts/seed.sql :/docker-entrypoint-initdb.d/seed.sql
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+      POSTGRES_DB: "basketdb"
+    networks:
+      - webshop-net
+
+  marketing:
+    build: marketing/.
+    networks:
+      - webshop-net
+    depends_on:
+      - "mongodb"
+    ports:
+      - "3003:3000"
+    environment:
+      PORT: 3000
+      DB_IP: mongodb
+
+  mongodb:
+    image: mongo
+    ports:
+      - 27017:27017
+    networks:
+      - webshop-net
+    restart: always
+
+  api-gateway:
+    build: API-Gateway/.
+    networks:
+      - webshop-net
+    ports:
+      - "3005:3000"
+    environment:
+      MARKETING_IP: marketing
+      BASKET_IP: basket
+volumes:
+  db_volume:

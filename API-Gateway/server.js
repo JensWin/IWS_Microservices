@@ -1,10 +1,14 @@
 const express = require('express');
 const httpProxy = require('express-http-proxy');
+const config = require('./config/default.json');
+
 
 // Constants
-const PORT = 3001;
-const marketingURL = "localhost:3000";
-const basketURL = "localhost:5000";
+const PORT = config.Gateway.port;
+const basketURL= process.env.BASKET_IP + ":" +config.Nodes.basketPORT;
+const marketingURL= process.env.MARKETING_IP + ":" + config.Nodes.marketingPORT;
+const productURL= config.Nodes.productURL;
+const paymentURL= config.Nodes.paymentURL;
 
 //Routes
 const compositionRoute = require("./routes/composition");
@@ -18,8 +22,10 @@ app.get('/', (req, res) => {
 });
 
 //proxy
-app.use('/campaign', httpProxy(marketingURL));
+app.use('/marketing', httpProxy(marketingURL));
 app.use('/basket', httpProxy(basketURL));
+app.use('/product', httpProxy(productURL));
+app.use('/payment', httpProxy(paymentURL));
 
 app.use('/api', compositionRoute);
 
