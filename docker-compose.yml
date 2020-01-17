@@ -54,6 +54,36 @@ services:
       - webshop-net
     restart: always
 
+  payment:
+    build: orderPayment/.
+    container_name: "payment"
+    environment:
+      POSTGRES_HOST: "db"
+      POSTGRES_DB: "iws"
+      POSTGRES_USER: "iws"
+      POSTGRES_PASS: "iws"
+    ports:
+      - "3004:8080"
+    depends_on:
+      - "paymentdb"
+    networks:
+      - webshop-net
+
+  paymentdb:
+    container_name: "payment_db"
+    image: postgres:10.11
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: "iws"
+      POSTGRES_USER: "iws"
+      POSTGRES_PASSWORD: "iws"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - webshop-net
+
   api-gateway:
     build: API-Gateway/.
     networks:
@@ -63,5 +93,7 @@ services:
     environment:
       MARKETING_IP: marketing
       BASKET_IP: basket
+      PAYMENT_IP: payment
 volumes:
   db_volume:
+  postgres_data:
