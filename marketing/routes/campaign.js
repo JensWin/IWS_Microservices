@@ -27,7 +27,6 @@ router.post("/", function (req, res, next) {
     campaign
         .save()
         .then(result => {
-            console.log(result);
             res.status(201).json({
                 message: "campaign created"
             });
@@ -51,15 +50,7 @@ router.delete("/:id", function (req, res, next) {
     });
 });
 /* get campaign by product id*/
-router.get("/productid/:id", function (req, res, next) {
-    const id = req.params.id;
-    campaignSchema.findById(id, function (err, campaign){
-        if (err){
-            res.send(err.toString());
-        }else{
-            res.json(campaign);
-        }
-    });
+router.get("/product/:id", function (req, res, next) {
     campaignSchema.find({ "product_id" : req.params.id},
         function (err, campaigns) {
             if (err) return console.error(err);

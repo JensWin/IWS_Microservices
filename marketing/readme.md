@@ -98,11 +98,11 @@ Use inspect on MongoDB container to get the IP
 
 **Get Campaign**
   ----
-    Get campaign by given ID.
+    Get campaign by given product ID.
 
   * **URL**
 
-    /:id
+    /product/:id
 
   * **Method:**
 
