@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
 //proxy
 app.use('/marketing', httpProxy(marketingURL));
 app.use('/basket', httpProxy(basketURL));
-app.use('/product', httpProxy(productURL));
+//app.use('/product', httpProxy(productURL));
 app.use('/payment', httpProxy(paymentURL));
 
 app.use('/api', compositionRoute);

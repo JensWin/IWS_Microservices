@@ -24,9 +24,6 @@ services:
     ports:
       - "5432"
     restart: always
-    volumes:
-      - db_volume:/var/lib/postgresql/data2
-      - ./basket/basket/dbscripts/seed.sql :/docker-entrypoint-initdb.d/seed.sql
     environment:
       POSTGRES_USER: "postgres"
       POSTGRES_PASSWORD: "postgres"
@@ -95,5 +92,4 @@ services:
       BASKET_IP: basket
       PAYMENT_IP: payment
 volumes:
-  db_volume:
   postgres_data:

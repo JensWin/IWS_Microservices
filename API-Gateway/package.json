@@ -10,10 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.1",
-    "body-parser": "latest",
+    "body-parser": "^1.19.0",
+    "config": "^3.2.5",
+    "express": "^4.17.1",
     "express-http-proxy": "^1.6.0",
-    "request": "^2.88.0",
-    "config": "^3.2.5"
+    "request": "^2.88.0"
   }
 }
