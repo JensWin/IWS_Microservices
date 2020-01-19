@@ -84,6 +84,31 @@ services:
     networks:
       - webshop-net
 
+  productcatalog:
+    build: productcatalog/.
+    container_name: "productcatalog"
+    environment:
+      DB_CONNECTION_STRING: "jdbc:mysql://productcatalogdb:3306/catalogdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true"
+    ports:
+    - "3006:8080"
+    depends_on:
+      - "productcatalogdb"
+    networks:
+      - webshop-net
+
+  productcatalogdb:
+    image: mysql:latest
+    container_name: "productcatalogdb"
+    restart: always
+    ports:
+    - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root-pw"
+    volumes:
+    - mysql_data:/var/lib/mysql
+    networks:
+      - webshop-net
+
   api-gateway:
     build: API-Gateway/.
     networks:
@@ -94,6 +119,8 @@ services:
       MARKETING_IP: marketing
       BASKET_IP: basket
       PAYMENT_IP: payment
+
 volumes:
   db_volume:
   postgres_data:
+  mysql_data:
