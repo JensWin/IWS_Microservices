@@ -46,12 +46,12 @@ namespace basket
 
              );
             }
-         
+            services.AddTransient<DbSeeder>();
             services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DbSeeder seeder)
         {
             if (env.IsDevelopment())
             {
@@ -69,6 +69,7 @@ namespace basket
                 endpoints.MapControllers();
             });
 
+            //seeder.SeedAsync(app.ApplicationServices).Wait();
             //using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             //using (var context = scope.ServiceProvider.GetService<BasketDbContext>())
             //{
@@ -79,7 +80,7 @@ namespace basket
             //    //{
             //    //    Count = 2,
             //    //    ProductName = "Hallo",
-                    
+
             //    //};
 
             //    //var basket = new CustomerBasket
@@ -94,7 +95,7 @@ namespace basket
             //    //context.Add(basket);
             //    context.SaveChanges();
             //}
-                
+
         }
     }
 }

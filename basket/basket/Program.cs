@@ -28,7 +28,7 @@ namespace basket
             //    var item = new BasketItem
             //    {
             //        Count = 2,
-            //        ProductName = "Hallo",
+            //        ProductId = 1,
 
             //    };
 

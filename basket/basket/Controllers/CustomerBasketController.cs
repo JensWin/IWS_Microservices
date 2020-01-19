@@ -9,23 +9,21 @@ using System.Threading.Tasks;
 
 namespace basket.Controllers
 {
-    [Route("Basket/")]
+    [Route("/")]
     [ApiController]
     public class CustomerBasketController : ControllerBase
     {
         private readonly BasketDbContext _context;
-
         public CustomerBasketController(BasketDbContext context)
         {
             _context = context;
-            //_context.Database.Migrate();
         }
 
-        // GET: /Basket
+        // GET: /
         [HttpGet]
-        public string GetBaskets()
+        public async Task<string> GetBaskets()
         {
-            //return await _context.Baskets.ToListAsync();
+            await _context.Database.MigrateAsync();
 
             return "Hallo";
         }
@@ -35,10 +33,12 @@ namespace basket.Controllers
         /// </summary>
         /// <param name="id">CustomerId</param>
         /// <returns></returns>
-        // GET: Basket/1
+        // GET: /1
         [HttpGet("{id}")]
         public async Task<ActionResult<CustomerBasket>> GetCustomerBasket(int id)
         {
+            await _context.Database.MigrateAsync();
+
             var customerBasket = await _context.Baskets.Include(b => b.Items).FirstOrDefaultAsync(b => b.CustomerId == id);
 
             if (customerBasket == null)
@@ -49,10 +49,12 @@ namespace basket.Controllers
             return customerBasket;
         }
 
-        //POST: Basket/1
+        //POST: /1
         [HttpPost("{customerId}")]
         public async Task<ActionResult<CustomerBasket>> AddItemToBasket(int customerId, [FromBody]BasketItem item)
         {
+            await _context.Database.MigrateAsync();
+
             var customerBasket = await _context.Baskets.Include(b => b.Items).FirstOrDefaultAsync(b => b.CustomerId == customerId);
 
             //if there is no basket for the desired customer, create it
@@ -80,10 +82,12 @@ namespace basket.Controllers
             return customerBasket;
         }
 
-        // DELETE: Basket/clear/1
+        // DELETE: /clear/1
         [HttpPost("clear/{customerId}")]
         public async Task<ActionResult<CustomerBasket>> ClearCustomerBasket(int customerId)
         {
+            await _context.Database.MigrateAsync();
+
             var customerBasket = await _context.Baskets.Include(b => b.Items).FirstOrDefaultAsync(b => b.CustomerId == customerId);
 
             if (customerBasket == null)
