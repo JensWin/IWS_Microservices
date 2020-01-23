@@ -5,7 +5,7 @@ package org.jooq.codegen.maven.example.tables.pojos;
 
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.sql.Date;
 
 import javax.annotation.processing.Generated;
 
@@ -23,14 +23,14 @@ import javax.annotation.processing.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Order implements Serializable {
 
-    private static final long serialVersionUID = -1265354484;
+    private static final long serialVersionUID = -1373204106;
 
-    private Integer   orderId;
-    private String    user;
-    private String    articles;
-    private String    bankAccount;
-    private Timestamp createdOn;
-    private String    bill;
+    private Integer orderId;
+    private String  user;
+    private String  articles;
+    private String  bankAccount;
+    private Date    createdOn;
+    private String  bill;
 
     public Order() {}
 
@@ -44,12 +44,12 @@ public class Order implements Serializable {
     }
 
     public Order(
-        Integer   orderId,
-        String    user,
-        String    articles,
-        String    bankAccount,
-        Timestamp createdOn,
-        String    bill
+        Integer orderId,
+        String  user,
+        String  articles,
+        String  bankAccount,
+        Date    createdOn,
+        String  bill
     ) {
         this.orderId = orderId;
         this.user = user;
@@ -91,11 +91,11 @@ public class Order implements Serializable {
         this.bankAccount = bankAccount;
     }
 
-    public Timestamp getCreatedOn() {
+    public Date getCreatedOn() {
         return this.createdOn;
     }
 
-    public void setCreatedOn(Timestamp createdOn) {
+    public void setCreatedOn(Date createdOn) {
         this.createdOn = createdOn;
     }
 

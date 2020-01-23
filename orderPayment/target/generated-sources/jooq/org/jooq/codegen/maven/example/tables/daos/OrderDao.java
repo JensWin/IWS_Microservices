@@ -4,7 +4,7 @@
 package org.jooq.codegen.maven.example.tables.daos;
 
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.List;
 
 import javax.annotation.processing.Generated;
@@ -113,14 +113,14 @@ public class OrderDao extends DAOImpl<OrderRecord, org.jooq.codegen.maven.exampl
     /**
      * Fetch records that have <code>created_on BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchRangeOfCreatedOn(Timestamp lowerInclusive, Timestamp upperInclusive) {
+    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchRangeOfCreatedOn(Date lowerInclusive, Date upperInclusive) {
         return fetchRange(Order.ORDER.CREATED_ON, lowerInclusive, upperInclusive);
     }
 
     /**
      * Fetch records that have <code>created_on IN (values)</code>
      */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchByCreatedOn(Timestamp... values) {
+    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchByCreatedOn(Date... values) {
         return fetch(Order.ORDER.CREATED_ON, values);
     }
 

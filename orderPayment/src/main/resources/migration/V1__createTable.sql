@@ -6,6 +6,6 @@ CREATE TABLE iws.order(
    "user" varchar(100) NOT NULL,
    articles text NOT NULL,
    bank_Account text,
-   created_on TIMESTAMP NOT NULL,
+   created_on DATE NOT NULL,
    bill text
 );

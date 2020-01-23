@@ -21,7 +21,7 @@ public class Rest {
     private static ObjectWriter ow = new ObjectMapper().setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY).writer().withDefaultPrettyPrinter();
 
 
-    @Path("/createOrder")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @POST
@@ -37,13 +37,13 @@ public class Rest {
         return Response.ok(jsonObject).build();
     }
 
-    @Path("/getOrder")
+    @Path("/")
     @Produces(MediaType.APPLICATION_JSON)
     @GET
-    public Response getOrder(@QueryParam("orderId") int orderId) {
+    public Response getOrder(@QueryParam("billNumber") String billnumber) {
         String json = null;
         try {
-            json = ow.writeValueAsString(OrderUtil.fetchOrderForOrderId(orderId));
+            json = ow.writeValueAsString(OrderUtil.fetchOrderForBillNumber(billnumber));
         } catch (JsonProcessingException e) {
             Response.status(400, e.getMessage()).build();
         } catch (SQLException e) {

@@ -4,7 +4,7 @@
 package org.jooq.codegen.maven.example.tables;
 
 
-import java.sql.Timestamp;
+import java.sql.Date;
 import java.util.Arrays;
 import java.util.List;
 
@@ -42,7 +42,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Order extends TableImpl<OrderRecord> {
 
-    private static final long serialVersionUID = -150558605;
+    private static final long serialVersionUID = -1612606053;
 
     /**
      * The reference instance of <code>iws.order</code>
@@ -80,7 +80,7 @@ public class Order extends TableImpl<OrderRecord> {
     /**
      * The column <code>iws.order.created_on</code>.
      */
-    public final TableField<OrderRecord, Timestamp> CREATED_ON = createField(DSL.name("created_on"), org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
+    public final TableField<OrderRecord, Date> CREATED_ON = createField(DSL.name("created_on"), org.jooq.impl.SQLDataType.DATE.nullable(false), this, "");
 
     /**
      * The column <code>iws.order.bill</code>.
@@ -176,7 +176,7 @@ public class Order extends TableImpl<OrderRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<Integer, String, String, String, Timestamp, String> fieldsRow() {
+    public Row6<Integer, String, String, String, Date, String> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 }

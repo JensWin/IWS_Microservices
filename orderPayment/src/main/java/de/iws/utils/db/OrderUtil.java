@@ -31,4 +31,19 @@ public class OrderUtil {
             return orderDao.fetchOneByOrderId(orderId);
         }
     }
+
+    /**
+     * Get order for a given userId
+     *
+     * @param billNumber the id of the bill
+     * @return the searched order
+     */
+    public static Order fetchOrderForBillNumber(String billNumber) throws SQLException {
+        OrderDao orderDao;
+        try (Connection conn = ResourceManager.getConnection()) {
+            Configuration configuration = new DefaultConfiguration().set(conn).set(SQLDialect.POSTGRES);
+            orderDao = new OrderDao(configuration);
+            return orderDao.fetchByBill(billNumber).get(0);
+        }
+    }
 }

@@ -9,8 +9,8 @@ import org.jooq.codegen.maven.example.Tables;
 import org.jooq.codegen.maven.example.tables.pojos.Order;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
-import java.sql.Timestamp;
 import java.util.UUID;
 
 public class OrderHandler {
@@ -30,7 +30,7 @@ public class OrderHandler {
                     .values(order.getUser(),
                             order.getArticles(),
                             order.getBankAccount(),
-                            new Timestamp(System.currentTimeMillis()),
+                            new Date(System.currentTimeMillis()),
                             UUID.randomUUID().toString().replace("-", ""))
                     .returning(Tables.ORDER.ORDER_ID).fetchOne();
             id = record.getValue(Tables.ORDER.ORDER_ID);
