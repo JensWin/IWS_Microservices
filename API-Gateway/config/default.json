@@ -2,7 +2,7 @@
   "Nodes": {
     "basketPORT": "80",
     "marketingPORT": "3000",
-    "productPORT": "iwas",
+    "productPORT": "3006",
     "paymentPORT": "8080"
   },
   "Gateway": {

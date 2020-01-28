@@ -116,6 +116,8 @@ services:
       MARKETING_IP: marketing
       BASKET_IP: basket
       PAYMENT_IP: payment
+      PRODUCTCATALOG_IP: productcatalog
+
 
 volumes:
   postgres_data:
