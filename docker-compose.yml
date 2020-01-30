@@ -55,7 +55,7 @@ services:
     build: orderPayment/.
     container_name: "payment"
     environment:
-      POSTGRES_HOST: "db"
+      POSTGRES_HOST: "paymentdb"
       POSTGRES_DB: "iws"
       POSTGRES_USER: "iws"
       POSTGRES_PASS: "iws"
