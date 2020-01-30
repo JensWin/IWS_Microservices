@@ -1,0 +1,35 @@
+version: '2'
+
+networks:
+  webshop-net:
+    driver: bridge
+
+services:
+  productcatalog:
+    build: .
+    container_name: "productcatalog"
+    environment:
+      DB_CONNECTION_STRING: "jdbc:mysql://productcatalogdb:3306/catalogdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true"
+    ports:
+      - "3006:8080"
+    depends_on:
+      - "productcatalogdb"
+    restart: always
+    networks:
+      - webshop-net
+
+  productcatalogdb:
+    image: mysql:latest
+    container_name: "productcatalogdb"
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "root-pw"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - webshop-net
+
+volumes:
+  mysql_data:

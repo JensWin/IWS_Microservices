@@ -83,7 +83,6 @@ services:
 
   productcatalog:
     build: productcatalog/.
-    container_name: "productcatalog"
     environment:
       DB_CONNECTION_STRING: "jdbc:mysql://productcatalogdb:3306/catalogdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true"
     ports:
@@ -95,7 +94,6 @@ services:
 
   productcatalogdb:
     image: mysql:latest
-    container_name: "productcatalogdb"
     restart: always
     ports:
     - "3306:3306"
