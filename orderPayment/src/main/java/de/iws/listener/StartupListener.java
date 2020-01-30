@@ -30,10 +30,8 @@
 package de.iws.listener;
 
 import de.iws.utils.db.Migration;
-import org.apache.logging.log4j.core.config.Configurator;
 
 import javax.servlet.ServletContextEvent;
-import java.io.File;
 import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -72,9 +70,6 @@ public class StartupListener implements javax.servlet.ServletContextListener {
      */
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("log4j2.xml").getFile());
-        Configurator.initialize(null, file.getAbsolutePath());
         Migration.doUpgrade();
     }
 

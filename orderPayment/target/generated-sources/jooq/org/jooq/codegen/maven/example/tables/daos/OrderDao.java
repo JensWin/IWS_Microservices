@@ -4,7 +4,6 @@
 package org.jooq.codegen.maven.example.tables.daos;
 
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.annotation.processing.Generated;
@@ -69,59 +68,45 @@ public class OrderDao extends DAOImpl<OrderRecord, org.jooq.codegen.maven.exampl
     }
 
     /**
-     * Fetch records that have <code>user BETWEEN lowerInclusive AND upperInclusive</code>
+     * Fetch records that have <code>customer_id BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchRangeOfUser(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Order.ORDER.USER, lowerInclusive, upperInclusive);
+    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchRangeOfCustomerId(Integer lowerInclusive, Integer upperInclusive) {
+        return fetchRange(Order.ORDER.CUSTOMER_ID, lowerInclusive, upperInclusive);
     }
 
     /**
-     * Fetch records that have <code>user IN (values)</code>
+     * Fetch records that have <code>customer_id IN (values)</code>
      */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchByUser(String... values) {
-        return fetch(Order.ORDER.USER, values);
+    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchByCustomerId(Integer... values) {
+        return fetch(Order.ORDER.CUSTOMER_ID, values);
     }
 
     /**
-     * Fetch records that have <code>articles BETWEEN lowerInclusive AND upperInclusive</code>
+     * Fetch records that have <code>items BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchRangeOfArticles(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Order.ORDER.ARTICLES, lowerInclusive, upperInclusive);
+    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchRangeOfItems(String lowerInclusive, String upperInclusive) {
+        return fetchRange(Order.ORDER.ITEMS, lowerInclusive, upperInclusive);
     }
 
     /**
-     * Fetch records that have <code>articles IN (values)</code>
+     * Fetch records that have <code>items IN (values)</code>
      */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchByArticles(String... values) {
-        return fetch(Order.ORDER.ARTICLES, values);
+    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchByItems(String... values) {
+        return fetch(Order.ORDER.ITEMS, values);
     }
 
     /**
-     * Fetch records that have <code>bank_account BETWEEN lowerInclusive AND upperInclusive</code>
+     * Fetch records that have <code>price BETWEEN lowerInclusive AND upperInclusive</code>
      */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchRangeOfBankAccount(String lowerInclusive, String upperInclusive) {
-        return fetchRange(Order.ORDER.BANK_ACCOUNT, lowerInclusive, upperInclusive);
+    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchRangeOfPrice(String lowerInclusive, String upperInclusive) {
+        return fetchRange(Order.ORDER.PRICE, lowerInclusive, upperInclusive);
     }
 
     /**
-     * Fetch records that have <code>bank_account IN (values)</code>
+     * Fetch records that have <code>price IN (values)</code>
      */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchByBankAccount(String... values) {
-        return fetch(Order.ORDER.BANK_ACCOUNT, values);
-    }
-
-    /**
-     * Fetch records that have <code>created_on BETWEEN lowerInclusive AND upperInclusive</code>
-     */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchRangeOfCreatedOn(Date lowerInclusive, Date upperInclusive) {
-        return fetchRange(Order.ORDER.CREATED_ON, lowerInclusive, upperInclusive);
-    }
-
-    /**
-     * Fetch records that have <code>created_on IN (values)</code>
-     */
-    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchByCreatedOn(Date... values) {
-        return fetch(Order.ORDER.CREATED_ON, values);
+    public List<org.jooq.codegen.maven.example.tables.pojos.Order> fetchByPrice(String... values) {
+        return fetch(Order.ORDER.PRICE, values);
     }
 
     /**

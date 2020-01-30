@@ -4,7 +4,6 @@
 package org.jooq.codegen.maven.example.tables;
 
 
-import java.sql.Date;
 import java.util.Arrays;
 import java.util.List;
 
@@ -16,7 +15,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row6;
+import org.jooq.Row5;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -42,7 +41,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Order extends TableImpl<OrderRecord> {
 
-    private static final long serialVersionUID = -1612606053;
+    private static final long serialVersionUID = -2044076906;
 
     /**
      * The reference instance of <code>iws.order</code>
@@ -63,24 +62,19 @@ public class Order extends TableImpl<OrderRecord> {
     public final TableField<OrderRecord, Integer> ORDER_ID = createField(DSL.name("order_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false).defaultValue(org.jooq.impl.DSL.field("nextval('order_order_id_seq'::regclass)", org.jooq.impl.SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>iws.order.user</code>.
+     * The column <code>iws.order.customer_id</code>.
      */
-    public final TableField<OrderRecord, String> USER = createField(DSL.name("user"), org.jooq.impl.SQLDataType.VARCHAR(100).nullable(false), this, "");
+    public final TableField<OrderRecord, Integer> CUSTOMER_ID = createField(DSL.name("customer_id"), org.jooq.impl.SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>iws.order.articles</code>.
+     * The column <code>iws.order.items</code>.
      */
-    public final TableField<OrderRecord, String> ARTICLES = createField(DSL.name("articles"), org.jooq.impl.SQLDataType.CLOB.nullable(false), this, "");
+    public final TableField<OrderRecord, String> ITEMS = createField(DSL.name("items"), org.jooq.impl.SQLDataType.CLOB, this, "");
 
     /**
-     * The column <code>iws.order.bank_account</code>.
+     * The column <code>iws.order.price</code>.
      */
-    public final TableField<OrderRecord, String> BANK_ACCOUNT = createField(DSL.name("bank_account"), org.jooq.impl.SQLDataType.CLOB, this, "");
-
-    /**
-     * The column <code>iws.order.created_on</code>.
-     */
-    public final TableField<OrderRecord, Date> CREATED_ON = createField(DSL.name("created_on"), org.jooq.impl.SQLDataType.DATE.nullable(false), this, "");
+    public final TableField<OrderRecord, String> PRICE = createField(DSL.name("price"), org.jooq.impl.SQLDataType.VARCHAR(10), this, "");
 
     /**
      * The column <code>iws.order.bill</code>.
@@ -172,11 +166,11 @@ public class Order extends TableImpl<OrderRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row6 type methods
+    // Row5 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<Integer, String, String, String, Date, String> fieldsRow() {
-        return (Row6) super.fieldsRow();
+    public Row5<Integer, Integer, String, String, String> fieldsRow() {
+        return (Row5) super.fieldsRow();
     }
 }

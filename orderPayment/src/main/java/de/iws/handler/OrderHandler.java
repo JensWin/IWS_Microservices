@@ -9,7 +9,6 @@ import org.jooq.codegen.maven.example.Tables;
 import org.jooq.codegen.maven.example.tables.pojos.Order;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.util.UUID;
 
@@ -21,16 +20,14 @@ public class OrderHandler {
             DSLContext dslContext = ResourceManager.getDSLContext(connection);
             Record record = dslContext
                     .insertInto(Tables.ORDER,
-                            Tables.ORDER.USER,
-                            Tables.ORDER.ARTICLES,
-                            Tables.ORDER.BANK_ACCOUNT,
-                            Tables.ORDER.CREATED_ON,
+                            Tables.ORDER.CUSTOMER_ID,
+                            Tables.ORDER.ITEMS,
+                            Tables.ORDER.PRICE,
                             Tables.ORDER.BILL
                            )
-                    .values(order.getUser(),
-                            order.getArticles(),
-                            order.getBankAccount(),
-                            new Date(System.currentTimeMillis()),
+                    .values(order.getCustomerId(),
+                            order.getItems(),
+                            order.getPrice(),
                             UUID.randomUUID().toString().replace("-", ""))
                     .returning(Tables.ORDER.ORDER_ID).fetchOne();
             id = record.getValue(Tables.ORDER.ORDER_ID);
