@@ -7,7 +7,7 @@ const config = require('./config/default.json');
 const PORT = config.Gateway.port;
 const basketURL= process.env.BASKET_IP + ":" +config.Nodes.basketPORT;
 const marketingURL= process.env.MARKETING_IP + ":" + config.Nodes.marketingPORT;
-const productURL= PRODUCTCATALOG_IP + ":" + config.Nodes.productPORT;
+const productURL= process.env.PRODUCTCATALOG_IP + ":" + config.Nodes.productPORT;
 const paymentURL= process.env.PAYMENT_IP + ":" + config.Nodes.paymentPORT;
 
 //Routes

@@ -53,7 +53,6 @@ services:
 
   payment:
     build: orderPayment/.
-    container_name: "payment"
     environment:
       POSTGRES_HOST: "paymentdb"
       POSTGRES_DB: "iws"
@@ -67,7 +66,6 @@ services:
       - webshop-net
 
   paymentdb:
-    container_name: "payment_db"
     image: postgres:10.11
     restart: always
     ports:
