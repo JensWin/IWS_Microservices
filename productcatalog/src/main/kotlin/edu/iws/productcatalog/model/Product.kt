@@ -1,7 +1,10 @@
 package edu.iws.productcatalog.model
 
 import org.springframework.lang.NonNull
-import javax.persistence.*
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
 
 @Entity
 data class Product(
@@ -12,11 +15,5 @@ data class Product(
         var name: String,
         var description: String,
         var quantity: Long,
-        var price: Double,
-
-        @OneToMany
-        var attributes: List<ProductAttribute>,
-
-        @OneToMany
-        var ratings: List<Rating>
+        var price: Double
 )
