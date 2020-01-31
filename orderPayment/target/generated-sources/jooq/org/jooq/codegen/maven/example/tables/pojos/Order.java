@@ -5,7 +5,6 @@ package org.jooq.codegen.maven.example.tables.pojos;
 
 
 import java.io.Serializable;
-import java.sql.Date;
 
 import javax.annotation.processing.Generated;
 
@@ -23,39 +22,35 @@ import javax.annotation.processing.Generated;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Order implements Serializable {
 
-    private static final long serialVersionUID = -1373204106;
+    private static final long serialVersionUID = 1657771454;
 
     private Integer orderId;
-    private String  user;
-    private String  articles;
-    private String  bankAccount;
-    private Date    createdOn;
+    private Integer customerId;
+    private String  items;
+    private String  price;
     private String  bill;
 
     public Order() {}
 
     public Order(Order value) {
         this.orderId = value.orderId;
-        this.user = value.user;
-        this.articles = value.articles;
-        this.bankAccount = value.bankAccount;
-        this.createdOn = value.createdOn;
+        this.customerId = value.customerId;
+        this.items = value.items;
+        this.price = value.price;
         this.bill = value.bill;
     }
 
     public Order(
         Integer orderId,
-        String  user,
-        String  articles,
-        String  bankAccount,
-        Date    createdOn,
+        Integer customerId,
+        String  items,
+        String  price,
         String  bill
     ) {
         this.orderId = orderId;
-        this.user = user;
-        this.articles = articles;
-        this.bankAccount = bankAccount;
-        this.createdOn = createdOn;
+        this.customerId = customerId;
+        this.items = items;
+        this.price = price;
         this.bill = bill;
     }
 
@@ -67,36 +62,28 @@ public class Order implements Serializable {
         this.orderId = orderId;
     }
 
-    public String getUser() {
-        return this.user;
+    public Integer getCustomerId() {
+        return this.customerId;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
     }
 
-    public String getArticles() {
-        return this.articles;
+    public String getItems() {
+        return this.items;
     }
 
-    public void setArticles(String articles) {
-        this.articles = articles;
+    public void setItems(String items) {
+        this.items = items;
     }
 
-    public String getBankAccount() {
-        return this.bankAccount;
+    public String getPrice() {
+        return this.price;
     }
 
-    public void setBankAccount(String bankAccount) {
-        this.bankAccount = bankAccount;
-    }
-
-    public Date getCreatedOn() {
-        return this.createdOn;
-    }
-
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getBill() {
@@ -112,10 +99,9 @@ public class Order implements Serializable {
         StringBuilder sb = new StringBuilder("Order (");
 
         sb.append(orderId);
-        sb.append(", ").append(user);
-        sb.append(", ").append(articles);
-        sb.append(", ").append(bankAccount);
-        sb.append(", ").append(createdOn);
+        sb.append(", ").append(customerId);
+        sb.append(", ").append(items);
+        sb.append(", ").append(price);
         sb.append(", ").append(bill);
 
         sb.append(")");

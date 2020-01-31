@@ -37,13 +37,28 @@ public class Rest {
         return Response.ok(jsonObject).build();
     }
 
-    @Path("/")
+    @Path("/bill/{billNumber}")
     @Produces(MediaType.APPLICATION_JSON)
     @GET
-    public Response getOrder(@QueryParam("billNumber") String billnumber) {
+    public Response getOrderByBillNumber(@PathParam("billNumber") String billnumber) {
         String json = null;
         try {
             json = ow.writeValueAsString(OrderUtil.fetchOrderForBillNumber(billnumber));
+        } catch (JsonProcessingException e) {
+            Response.status(400, e.getMessage()).build();
+        } catch (SQLException e) {
+            Response.status(500, e.getMessage()).build();
+        }
+        return Response.ok(json).build();
+    }
+
+    @Path("/customer/{customerId}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @GET
+    public Response getOrdersByCustomer(@PathParam("customerId") int customerId) {
+        String json = null;
+        try {
+            json = ow.writeValueAsString(OrderUtil.fetchOrderForCustomerId(customerId));
         } catch (JsonProcessingException e) {
             Response.status(400, e.getMessage()).build();
         } catch (SQLException e) {
