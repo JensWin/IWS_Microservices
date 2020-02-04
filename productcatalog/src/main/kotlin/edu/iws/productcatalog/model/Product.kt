@@ -11,9 +11,9 @@ data class Product(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @NonNull
-        var id: Long,
-        var name: String,
-        var description: String,
-        var quantity: Long,
-        var price: Double
+        var productId: Long,
+        var productName: String,
+        var productDescription: String,
+        var productQuantity: Long,
+        var productPrice: Double
 )
