@@ -31,7 +31,7 @@ Alles löschen zur guten Übersicht `docker system prune`
     * `docker stop iws-mysql`
     * `docker rm iws-mysql`
 
-`docker run --name iws-mysql -h localhost -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root-pw -d --mount source=mysql_volume,target=/var/lib/mysql mysql:latest`
+`docker run --name iws-mysql -h localhost -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root-pw -d -v mysql_volume:/var/lib/mysql mysql:latest`
 
 3. API neustarten, um Schema neu zu generieren
 
